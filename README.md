@@ -17,8 +17,7 @@ npm install --save miniprogram-watch
 ```js
 const watchBehavior = require("miniprogram-watch");
 
-Component({
-  behaviors: [watchBehavior],
+Cobehaviors: [watchBehavior],
   properties: {
     propA: {
       type: Number,
@@ -34,6 +33,8 @@ Component({
       e: [1, 2, [3, 4]]
     }
   },
+  // 可以将需要监听的数据放入 watch 里面，当数据改变时推送相应的订阅事件
+  // 支持 data 以及 properties 的监听
   watch: {
     propA(val, oldVal) {
       console.log("propA new: %s, old: %s", val, oldVal);
@@ -59,7 +60,7 @@ Component({
         "b.e[2][0]": 444,
         c: 123
       });
-      this.triggerEvent("update");
+      // 不在 data 里面的数据项不会放入观察者列表，比如这里的'b.e[3][4]'
     }
   }
 });
@@ -75,9 +76,9 @@ Component({
 ```
 
 ## 如何在 Page 里使用 watch
-
-参考：[《小程序的奇技淫巧之 computed 计算属性》](https://godbasin.github.io/2018/12/23/wxapp-computed/)    
-Tips: `Component`是`Page`的超集，[《使用 Component 构造器构造页面》](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/component.html)    
+参考：[《小程序的奇技淫巧之 watch 观察属性》](https://godbasin.github.io/2018/12/26/wxapp-watch/)    
+Tips: `Component`是`Page`的超集，[《使用 Component 构造器构造页面》](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/component.html)   
+> 事实上，小程序的页面也可以视为自定义组件。因而，页面也可以使用`Component`构造器构造，拥有与普通组件一样的定义段与实例方法。但此时要求对应`json`文件中包含`usingComponents`定义段。  
 
 ## watch 的实现参考
 [jayZOU/watch](https://github.com/jayZOU/watch)
