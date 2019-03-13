@@ -1,3 +1,7 @@
+# 2019.03.13更新
+官方已支持数据监听，详情可查看[数据监听器](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html)。
+**数据监听器可以用于监听和响应任何属性和数据字段的变化。从小程序基础库版本 2.6.1 开始支持。**
+
 # watch
 
 小程序自定义组件扩展 behavior，watch 属性实现
