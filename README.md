@@ -21,7 +21,8 @@ npm install --save miniprogram-watch
 ```js
 const watchBehavior = require("miniprogram-watch");
 
-Cobehaviors: [watchBehavior],
+Component({
+  behaviors: [watchBehavior],
   properties: {
     propA: {
       type: Number,
